@@ -1,0 +1,66 @@
+<button type="button" class="btn btn-primary pull-right">
+    Crear Formulario <span class="glyphicon glyphicon-plus"></span>
+</button>
+
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title text-center">Bandeja de Formularios</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div id="" class="form-inline">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div id="example1_filter" class="form-group">
+                        <label>Buscar:
+                            <input type="search" ng-model="vm.busqueda" class="form-control input-sm"
+                                   placeholder="Buscar Formulario...">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="TablaFormularios" class="table table-bordered table-condensed table-hover" role="grid">
+                        <thead>
+                        <tr role="row">
+
+                            <th>Formulario</th>
+                            <th>Descripcion</th>
+                            <th class="text-center">Activo</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr role="row" class="" ng-repeat="form in vm.datos | filter: vm.busqueda">
+                            <td class=" ">{{form.Nombre}}</td>
+                            <td>{{form.Descripcion}}</td>
+                            <td class="text-center">
+                                <!-- <div toggle-switch on-label="Si" off-label="No" class="switch-small switch-success" ng-model="switchStatus"></div> -->
+                                <small class="badge">{{form.Activo | SiNo}}</small>
+                                <!--{{form.UUID}}-->
+                            </td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-default" id="btnSeleccionarFormulario"
+                                        title="Editar" ng-click="vm.editar(form.IdFormulario)">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-default" id="btnObtenerUUID" title="UUID"
+                                        ng-click="vm.getUUID(form.UUID)">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-default" id="btnEliminarFormulario"
+                                        title="Eliminar" ng-click="vm.eliminar(form.IdFormulario)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.box-body -->

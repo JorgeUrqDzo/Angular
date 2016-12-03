@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="Controles">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="app.less" type="text/css" rel="stylesheet/less">
+</head>
+<body>
+
+<!-- Livereload script for development only (stripped during dist build) -->
+<script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+
+<!-- JS from Bower Components -->
+<script src="bower_components/less.js/dist/less.js" data-concat="false"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/AngularJS-Toaster/toaster.js"></script>
+<script src="bower_components/devextreme/js/dx.all.js"></script>
+<!-- Add New Bower Component JS Above -->
+
+
+<!-- Main App JS -->
+<script src="app.js"></script>
+<script src="src/services/controlesService/ControlesService.js"></script>
+<script src="src/services/dxControles/dxControles.js"></script>
+<script src="src/views/BandejaFormularios/BandejaFormularios.js"></script>
+<script src="src/components/FormulariosList/FormulariosList.js"></script>
+<script src="src/shared/Menu/menu.js"></script>
+<script src="src/services/Formularios/Formularios.js"></script>
+<script src="src/shared/ModalEliminar/ConfirmarEliminar.js"></script>
+<script src="src/views/FormulariosDemo/FormulariosDemo.js"></script>
+<script src="src/components/SeccionesConfig/SeccionesConfig.js"></script>
+<script src="src/components/Secciones/Secciones.js"></script>
+<script src="src/components/SeccionControlesConfig/seccionControlesConfig.js"></script>
+<script src="src/components/ControlesList/ControlesList.js"></script>
+<script src="src/views/NuevoFormulario/NuevoFormulario.js"></script>
+<script src="src/services/FormConfig/FormConfig.js"></script>
+<!-- Add New Component JS Above -->
+
+<div class="header">
+    <menu></menu>
+</div>
+
+
+<div>
+    <div id="content" class="container">
+        <div class="row">
+            <div ng-view>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
