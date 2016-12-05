@@ -10,19 +10,28 @@
             bindings: {}
         });
 
-    seccionesComponent.$inject = ['FormConfig'];
-    function seccionesComponent(FormConfig) {
+    seccionesComponent.$inject = ['FormConfig', '$routeParams', '$http'];
+    function seccionesComponent(FormConfig, $routeParams, $http) {
         var vm = this;
-        var obj = FormConfig.getSeccionesData.data;
+        var obj = [];
+
+
         vm.NombreForm = "Nombre Formulario";
-        console.log(obj);
-        if (obj.text !== "")
-            vm.NombreForm = obj.text;
-        else
-            vm.NombreForm = 'Sin Asignar';
+        var url = 'http://localhost:48603/Arbol/Inicializar/' + $routeParams.id;
+        $http.get(url).then(function (res) {
 
-        vm.nodos = obj.nodes;
+            obj = angular.fromJson(res.data)[0];
 
+            if (obj.text !== "" || obj.text !== undefined)
+                vm.NombreForm = obj.text;
+            else
+                vm.NombreForm = 'Sin Asignar';
+
+            vm.nodos = obj.nodes;
+
+            console.log(vm.nodos);
+
+        });
     }
 
 })();

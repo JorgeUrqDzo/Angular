@@ -14,23 +14,6 @@ angular.module('Controles').config(function ($routeProvider, $locationProvider) 
 });
 
 
-//Configuracion de rutas API
-var host = 'http://localhost:48603/';
-angular.module('Controles')
-    .constant('nzConfig', {
-        GetFormularios: host + 'Formularios/GetFormularios',
-        GetFormData: host + 'Arbol/Inicializar'
-    });
-
-
-angular.module('Controles')
-    .filter('SiNo', function () {
-        return function (input) {
-            return input ? 'Si' : 'No';
-        }
-    });
-
-
 angular.module('Controles').run(function ($rootScope) {
 
     $rootScope.safeApply = function (fn) {

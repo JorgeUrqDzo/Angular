@@ -7,7 +7,7 @@
 
     function FormConfig() {
         return {
-            getSeccionesData: {}
+            getSeccionesData:[]
         };
 
 

@@ -20,7 +20,6 @@
 
         function getFormData(id) {
             var url = nzConfig.GetFormData + id;
-            console.log(url);
             return $http.get(url);
         }
     }

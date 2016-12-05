@@ -41,10 +41,13 @@
 
         Formularios.getFormularios().then(function (res) {
             vm.datos = res.data.lstFormularioModel;
-            // console.log(vm.datos);
         }, function (err) {
             console.error(err);
         });
+
+        vm.crearForm = function(){
+            $location.url('/crearFormulario');
+        }
 
 
     }

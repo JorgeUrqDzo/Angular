@@ -1,6 +1,17 @@
 <div class="col-md-4">
     <h2>Secciones</h2>
-    <secciones></secciones>
+    <accordion>
+        <accordion-panel heading="{{vm.formulario.text}}">
+            <accordion>
+                <accordion-panel heading="{{seccion.text}}" ng-repeat="seccion in vm.secciones">
+                    <p ng-repeat="control in seccion.nodes">
+                        <span class="glyphicon glyphicon-{{control.icon}}"></span> {{control.text}}
+                    </p>
+                </accordion-panel>
+            </accordion>
+        </accordion-panel>
+    </accordion>
+
 </div>
 
 
