@@ -35,7 +35,6 @@
                 controller: 'ConfirmareliminarCtrl'
             }).result.then(function (result) {
                 //do something with the result
-                console.log(result);
             });
         };
 
@@ -51,8 +50,6 @@
                 controller: 'CrearformularioCtrl'
             }).result.then(function(result){
                 //do something with the result
-                console.log("Result FormulariosList Modal");
-                console.log(result);
             });
         };
 

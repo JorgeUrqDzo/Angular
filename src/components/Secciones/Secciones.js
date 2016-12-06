@@ -10,14 +10,15 @@
             bindings: {}
         });
 
-    seccionesComponent.$inject = ['FormConfig', '$routeParams', '$http'];
-    function seccionesComponent(FormConfig, $routeParams, $http) {
+    seccionesComponent.$inject = ['$routeParams', '$http' ,'nzConfig'];
+    function seccionesComponent($routeParams, $http, nzConfig) {
         var vm = this;
         var obj = [];
 
 
         vm.NombreForm = "Nombre Formulario";
-        var url = 'http://localhost:48603/Arbol/Inicializar/' + $routeParams.id;
+        var url = nzConfig.GetFormData + $routeParams.id;
+        // var url = 'http://localhost:48603/Arbol/Inicializar/' + $routeParams.id;
         $http.get(url).then(function (res) {
 
             obj = angular.fromJson(res.data)[0];
@@ -28,8 +29,6 @@
                 vm.NombreForm = 'Sin Asignar';
 
             vm.nodos = obj.nodes;
-
-            console.log(vm.nodos);
 
         });
     }

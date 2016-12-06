@@ -4,23 +4,17 @@
     angular.module('Controles')
         .factory('dxControles', dxControles);
 
-    dxControles.$inject = ['ControlesService'];
-    function dxControles(ControlesService) {
+    dxControles.$inject = ['ControlesService', 'nzConfig'];
+    function dxControles(ControlesService, nzConfig) {
 
         //Objeto que regresa el factory con las propiedades asignadas
         var dxControles = {};
 
         //URLS API
-        var ACTION_SAVE = "/Controles/Guardar/";
-        var ACTION_GET = "/Controles/Get/";
-        var ACTION_DATASOURCE = "/DataSource/Get/";
-
-        // var API_URL = 'http://localhost:64632/Api';
-        // var API_URL = 'http://localhost/Controles/Api';
-
-        // var API_URL = 'http://localhost:64632/Api';
-        var API_URL = 'http://localhost:64632/Api';
-        // var API_URL = 'http://192.168.33.12/Controles/Api';
+        var ACTION_SAVE = nzConfig.ACTION_SAVE;
+        var ACTION_GET = nzConfig.ACTION_GET;
+        var ACTION_DATASOURCE = nzConfig.ACTION_DATASOURCE;
+        var API_URL = nzConfig.API_URL;
 
 
         var varObjDX = {};

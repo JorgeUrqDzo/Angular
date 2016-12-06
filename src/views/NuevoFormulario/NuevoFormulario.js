@@ -21,11 +21,12 @@
     }
 
 
-    NuevoformularioCtrl.$inject = ['$http', '$routeParams', 'FormConfig'];
-    function NuevoformularioCtrl($http, $routeParams, FormConfig) {
+    NuevoformularioCtrl.$inject = ['$http', '$routeParams', 'nzConfig'];
+    function NuevoformularioCtrl($http, $routeParams, nzConfig) {
         var vm = this;
         vm.formulario = [];
-        var url = 'http://localhost:48603/Arbol/Inicializar/' + $routeParams.id;
+
+        var url = nzConfig.GetFormData + $routeParams.id;
         $http.get(url).then(function (res) {
             if (res.data !== "") {
                 var obj = angular.fromJson(res.data)[0];
