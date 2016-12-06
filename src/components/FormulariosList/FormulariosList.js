@@ -46,8 +46,18 @@
         });
 
         vm.crearForm = function(){
-            $location.url('/crearFormulario');
-        }
+            $uibModal.open({
+                templateUrl: 'src/views/CrearFormulario/CrearFormulario.html',
+                controller: 'CrearformularioCtrl'
+            }).result.then(function(result){
+                //do something with the result
+                console.log("Result FormulariosList Modal");
+                console.log(result);
+            });
+        };
+
+
+
 
 
     }

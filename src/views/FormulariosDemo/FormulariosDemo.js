@@ -48,7 +48,7 @@
 
                 }, function (error) {
                     toaster.pop('error', "Error", "Ha ocurrido un error");
-                    console.error(error);
+                    // console.error(error);
                 });
         }
 

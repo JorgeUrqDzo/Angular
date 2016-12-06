@@ -1,0 +1,54 @@
+<div id="modalCrearFormulario">
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Crear Formulario</h4>
+    </div>
+    <div class="modal-body">
+        <form name="nuevoFormulario">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input type="text" name="Nombre" class="form-control" required ng-model="FormularioNew.Nombre">
+                        <span class="text-danger"
+                              ng-show="nuevoFormulario.Nombre.$error.required">Campo Requerido.</span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Descripción Breve:</label>
+                        <input type="text" name="Descripcion" class="form-control" required
+                               ng-model="FormularioNew.Descripcion">
+                        <span class="text-danger"
+                              ng-show="nuevoFormulario.Descripcion.$error.required">Campo Requerido.</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Tipo Formulario:</label>
+                        <select class="form-control" ng-model="FormularioNew.IdTipoFormulario">
+                            <option value="1">Formulario</option>
+                            <option value="2">Parámetros de Búsqueda</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Formato de Fecha:</label>
+                        <select class="form-control" ng-model="FormularioNew.FormatoFecha">
+                            <option value="dd/MM/yyyy">dd/MM/yyyy</option>
+                            <option value="MM/dd/yyyy">MM/dd/yyyy</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger pull-left" ng-click="$dismiss()">Cancelar</button>
+    <button type="button" class="btn btn-info pull-right" ng-click="ok(this)" ng-disabled="!nuevoFormulario.$valid">Crear
+    </button>
+</div>
+</div>
