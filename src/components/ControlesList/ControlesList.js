@@ -6,11 +6,14 @@
 
             templateUrl: 'src/components/ControlesList/ControlesList.html',
             controller: ControlesList,
-            bindings: {}
+            bindings: {
+                idForm: '@'
+            }
         });
 
-    function ControlesList() {
-
+    ControlesList.$inject = ['$http', 'nzConfig'];
+    function ControlesList($http, nzConfig) {
+        console.log("IdForm: " + $ctrl.idForm);
     }
 
 })();

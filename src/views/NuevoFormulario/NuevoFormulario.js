@@ -25,6 +25,7 @@
     function NuevoformularioCtrl($http, $routeParams, nzConfig) {
         var vm = this;
         vm.formulario = [];
+        // vm.IdForm =
 
         var url = nzConfig.GetFormData + $routeParams.id;
         $http.get(url).then(function (res) {

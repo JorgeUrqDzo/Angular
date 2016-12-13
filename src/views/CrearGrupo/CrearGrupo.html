@@ -1,0 +1,22 @@
+<div id="modalCrearGrupo">
+    <div class="modal-header ">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Crear Grupo</h4>
+    </div>
+    <div class="modal-body">
+        <form name="formCrearGrupo">
+            <div class="form-group">
+                <input type="text" name="txtNombreGrupo" class="form-control" placeholder="Nombre grupo" required ng-model="Grupo.Grupo">
+                <span class="text-danger"
+                      ng-show="formCrearGrupo.txtNombreGrupo.$error.required">*Campo Requerido.</span>
+            </div>
+        </form>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger pull-left" ng-click="$dismiss()">Cancelar</button>
+    <button type="button" class="btn btn-info pull-right" ng-click="ok(this)" ng-disabled="!formCrearGrupo.$valid">
+        Guardar
+    </button>
+</div>

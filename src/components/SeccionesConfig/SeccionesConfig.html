@@ -1,110 +1,137 @@
-<div class="col-md-12">
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">Configuracion de Seccion</div>
-            <div class="panel-body">
-                <div class="row">
+<form name="SeccionesConfigForm">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">Configuracion de Seccion</div>
+                <div class="panel-body">
+                    <div class="row">
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtNombreSeccion" class="control-label">Nombre:</label>
-                            <div>
-                                <input type="text" class="input-sm form-control" id="txtNombreSeccion"
-                                       placeholder="Nombre de Seccion">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtColumnasSeccion" class="control-label">Columnas:</label>
-                            <div>
-                                <input type="text" class="input-sm form-control" id="txtColumnasSeccion"
-                                       placeholder="Numero de Columnas">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtTipoDeSeccion" class="control-label">Tipo de Seccion:</label>
-                            <div>
-                                <select type="text" class="input-sm form-control" id="txtTipoDeSeccion"
-                                        placeholder="Tipo de Seccion">
-                                    <option value="1">Panel</option>
-                                    <option value="2">Tab</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtGrupoSeccion" class="control-label">Grupo:</label>
-                            <div class="input-group">
-                                <select type="text" class="input-sm form-control" id="txtGrupoSeccion"
-                                        placeholder="Grupo">
-                                    <option value=""></option>
-                                </select>
-                                <span class="input-group-btn">
-                                <button type="button" class="btn btn-sm btn-default" id="btnAgregarGrupo"
-                                        title="Agregar grupo"> <span class="glyphicon glyphicon-plus"></span> </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="" class="control-label">Icono:</label>
-                            <div>
-                                <div class="btn-group" style="width: 100%;">
-                                    <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"
-                                            aria-expanded="false" style="width: 100%;">
-                                        Iconos <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" ng-model="vm.icono">
-                                        <li><a ng-click="vm.icono = 'pencil';"><span
-                                            class="glyphicon glyphicon-pencil"></span> add</a></li>
-                                        <li><a ng-click="vm.icono = 'plus';"><span
-                                            class="glyphicon glyphicon-plus"></span> plus</a></li>
-                                        <li><a ng-click="vm.icono = 'time';"><span
-                                            class="glyphicon glyphicon-time"></span> times</a></li>
-
-                                    </ul>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="txtNombreSeccion" class="control-label">Nombre:</label>
+                                <div>
+                                    <input type="text" name="txtNombreSeccion" class="input-sm form-control" id="txtNombreSeccion"
+                                           placeholder="Nombre de Seccion" ng-model="vm.Seccion.Nombre" required>
+                                    <span class="text-danger"
+                                          ng-show="SeccionesConfigForm.txtNombreSeccion.$error.required">*Campo Requerido.</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="" class="control-label">Icono Seleccionado: </label>
-                            <p class=" text-center"><span class="glyphicon glyphicon-{{vm.icono}}"></span></p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtTablaBDSeccion" class="control-label">Tablas Base de Datos:</label>
-                            <div>
-                                <select type="text" class="input-sm form-control" id="txtTablaBDSeccion"
-                                        placeholder="Tablas de Base de Datos">
-                                    <option value="0">Seleccione...</option>
-                                    <option value="1">CatUsuarios</option>
-                                    <option value="2">CatEstado</option>
-                                    <option value="3">CatMunicipio</option>
-                                </select>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="txtColumnasSeccion" class="control-label">Columnas:</label>
+                                <div>
+                                    <input type="number" name="txtColumnasSeccion" min="1" max="12" class="input-sm form-control"
+                                           id="txtColumnasSeccion"
+                                           placeholder="Numero de Columnas" ng-model="vm.Seccion.Columnas" required>
+                                    <span class="text-danger"
+                                          ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.required">*Campo Requerido.</span>
+                                    <span class="text-danger"
+                                          ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.min">*El Valor Minimo permitido es 1.</span>
+                                    <span class="text-danger"
+                                          ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.max">*El Valor Maximo permitido es 12.</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtNombrePKSeccion" class="control-label">Nombre Primary Key:</label>
-                            <div>
-                                <input type="text" class="input-sm form-control" id="txtNombrePKSeccion"
-                                       placeholder="Nombre de Primary Key">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="txtTipoDeSeccion" class="control-label">Tipo de Seccion:</label>
+                                <div>
+                                    <select type="text" class="input-sm form-control" id="txtTipoDeSeccion"
+                                            placeholder="Tipo de Seccion" ng-model="vm.Seccion.IdTipoSeccion"
+                                            ng-init="vm.Seccion.IdTipoSeccion = '1'">
+                                        <option value="1" selected>Panel</option>
+                                        <option value="2">Tab</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" >
+                            <div class="form-group">
+                                <label for="txtGrupoSeccion" class="control-label">Grupo:</label>
+                                <div class="input-group" >
+                                    <select type="text" class="input-sm form-control" id="txtGrupoSeccion"
+                                            placeholder="Grupo" ng-model="vm.Seccion.Grupo" ng-disabled="vm.Seccion.IdTipoSeccion == '1'">
+                                        <option value="">(Ninguno)</option>
+                                        <option value="{{grupo.Llave}}" ng-repeat="grupo in vm.Grupos">
+                                            {{grupo.Titulo}}
+                                        </option>
+                                    </select>
+                                    <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-default" id="btnAgregarGrupo"
+                                        title="Agregar grupo" ng-click="vm.CrearGrupo()" ng-disabled="vm.Seccion.IdTipoSeccion == '1'">
+                                    <span class="glyphicon glyphicon-plus"></span> </button>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"></div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Tablas Base de Datos:</label>
+                                <div>
+                                    <select class="input-sm form-control" ng-model="vm.Seccion.Tabla">
+                                        <option value="Sin Asignar">(Ninguna)</option>
+                                        <option value="{{bd.tableName}}" ng-repeat="bd in vm.tablas">
+                                            {{bd.tableName}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="txtNombrePKSeccion" class="control-label">Nombre Primary Key:</label>
+                                <div>
+                                    <input type="text" name="txtNombrePKSeccion" class="input-sm form-control" id="txtNombrePKSeccion"
+                                           placeholder="Nombre de Primary Key" ng-model="vm.Seccion.PrimaryKey"
+                                           >
+                                    <!--<span class="text-danger"-->
+                                          <!--ng-show="SeccionesConfigForm.txtNombrePKSeccion.$error.required">*Campo Requerido.</span>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">Icono: </label>
+                                <span id="iconoSel" class="dx-icon dx-icon-{{vm.Seccion.Icono }}"></span>
+                                <div>
+                                    <div class="btn-group" style="width: 100%;">
+                                        <button class="btn btn-sm btn-default dropdown-toggle"
+                                                data-toggle="dropdown"
+                                                aria-expanded="false" style="width: 100%;" ng-disabled="vm.Seccion.IdTipoSeccion == '1'">
+                                            Iconos <span class="caret"> </span>
+                                        </button>
+                                        <ul class="dropdown-menu" ng-model="vm.icono"
+                                            style="width: 30px; height: 200px; overflow: auto" ng-disabled="vm.Seccion.IdTipoSeccion == '1'">
+                                            <li ng-repeat="icono in vm.iconos">
+                                                <!--<a ng-click="vm.icono = icono.Titulo">-->
+                                                <a ng-click="vm.Seccion.Icono  = icono.Titulo">
+                                                    <span class="dx-icon dx-icon-{{icono.Titulo}}"> </span>
+                                                    {{icono.Titulo}}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="">
+                                <div class="form-group">
+                                    <button class="btn btn-sm btn-info pull-left" ng-click="vm.GuardarSeccion()"
+                                            ng-disabled="!SeccionesConfigForm.$valid">
+                                        Guardar Sección
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,4 +139,6 @@
             </div>
         </div>
     </div>
-</div>
+</form>
+
+{{ vm.Seccion | json}}

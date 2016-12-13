@@ -10,11 +10,17 @@ angular.module('Controles')
         GetSeccionConfig: host + 'Secciones/Guardar',
         GetControlesConfig: host + 'SeccionControl/Editar',
         GuardarFormularioNuevo: host + 'Formularios/Guardar',
+        GuardarGrupo: host + 'Secciones/GuardarGrupo/',
+        GetDBTablesName: host + 'Secciones/getDBTablesName',
+        GetTableColumnName: host + 'Secciones/getTableColumnName',
+        GuardarSeccion: host + 'Secciones/GuardarSeccion',
+        GetIconos: host + 'Secciones/GetIconos',
+        GetGrupos: host + 'Secciones/ObtenerGrupos',
 
 
         //API
         API_URL: hostAPI + 'Api',
-        ACTION_SAVE : "/Controles/Guardar/",
-        ACTION_GET : "/Controles/Get/",
-        ACTION_DATASOURCE : "/DataSource/Get/"
+        ACTION_SAVE: "/Controles/Guardar/",
+        ACTION_GET: "/Controles/Get/",
+        ACTION_DATASOURCE: "/DataSource/Get/"
     });
