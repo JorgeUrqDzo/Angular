@@ -1,15 +1,16 @@
+
+
 <div class="col-md-12">
     <div class="row">
-        <div class="panel-body">
+       <div class="panel panel-primary">
+            <div class="panel-heading">Controles de Seccion</div>
+            <div class="panel-body" ng-if="controles.length">
             <div class="box">
-                <div class="box-header">
-                    <!--<h3 class="box-title text-center">Bandeja de Formularios</h3>-->
-                </div>
                 <!-- /.box-header -->
-                <div class="box-body">
+                <div class="box-body" >
                     <div class="row">
-                        <div class="col-sm-12">
-                            <table id="example1" class="table table-hover table-responsive" role="grid">
+                        <div class="col-sm-12 " >
+                            <table id="example1" class="table table-hover table-responsive" role="grid" >
                                 <thead>
                                 <tr role="row">
 
@@ -24,13 +25,13 @@
                                 </thead>
                                 <tbody>
 
-                                <tr role="row" class="">
+                                <tr role="row" class="" ng-repeat="control in controles">
                                     <td class=" ">1</td>
-                                    <td>Nombre</td>
-                                    <td>Texto</td>
-                                    <td></td>
-                                    <td>25</td>
-                                    <td>Si</td>
+                                    <td>{{control.Nombre}}</td>
+                                    <td class="text-center">{{control.TipoControl}}</td>
+                                    <td class="text-center">{{control.ValorDefalut}}</td>
+                                    <td class="text-center">{{control.Longitud}}</td>
+                                    <td class="text-center">{{control.Requerido | SiNo}}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-warning">
                                             <span class="fa fa-pencil"></span>
@@ -45,7 +46,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                    <!-- <div class="col-md-12">
                         <div class="row">
                             <div class="form-inline">
                                 <div class="form-group">
@@ -56,10 +57,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+
                 </div>
             </div>
             <!-- /.box-body -->
         </div>
+</div> 
     </div>
 </div>

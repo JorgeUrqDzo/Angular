@@ -4,16 +4,33 @@
     angular.module('Controles')
         .component('controlesList', {
 
-            templateUrl: 'src/components/ControlesList/ControlesList.html',
-            controller: ControlesList,
+
             bindings: {
-                idForm: '@'
-            }
+                idseccion: '@'
+            },
+            templateUrl: 'src/components/ControlesList/ControlesList.html',
+
+            controller: ControlesList
         });
 
-    ControlesList.$inject = ['$http', 'nzConfig'];
-    function ControlesList($http, nzConfig) {
-        console.log("IdForm: " + $ctrl.idForm);
+    ControlesList.$inject = ['$http', 'nzConfig','Variables', '$scope'];
+    function ControlesList($http, nzConfig, Variables,$scope) {
+
+        $scope.controles = [];
+
+        $scope.$watch(function(){
+            return Variables.getVariable()
+        },function(newValue, oldValue){
+            if(newValue !== oldValue){
+                if(newValue !== undefined){
+                    $http.get(nzConfig.GetControlesConfig + newValue).then(function(data){
+                        $scope.controles = data.data;
+                    });
+                }else{
+                    $scope.controles = [];
+                }
+            }
+        });
     }
 
 })();

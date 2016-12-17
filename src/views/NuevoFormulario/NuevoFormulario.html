@@ -3,7 +3,7 @@
     <accordion>
         <accordion-panel heading="{{vm.formulario.text}}">
             <accordion>
-                <accordion-panel heading="{{seccion.text}}" ng-repeat="seccion in vm.secciones">
+                <accordion-panel heading="{{seccion.text}}" idseccion ="{{seccion.href}}" ng-repeat="seccion in vm.secciones">
                     <p ng-repeat="control in seccion.nodes">
                         <span class="glyphicon glyphicon-{{control.icon}}"></span> {{control.text}}
                     </p>
@@ -19,8 +19,10 @@
     <h2>Configuracion</h2>
     <secciones-Config></secciones-Config>
     <seccion-Controles-Config></seccion-Controles-Config>
-    <Controles-List></Controles-List>
+    <Controles-List ></Controles-List>
 </div>
 
 
 <toaster-container></toaster-container>
+
+

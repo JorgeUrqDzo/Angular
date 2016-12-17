@@ -26,6 +26,7 @@
         var vm = this;
         vm.formulario = [];
         // vm.IdForm =
+        vm.idSeccion = 0;
 
         var url = nzConfig.GetFormData + $routeParams.id;
         $http.get(url).then(function (res) {
@@ -34,12 +35,17 @@
                 vm.formulario = obj;
                 if (obj.nodes) {
                     vm.secciones = obj.nodes;
+                    console.log(vm.secciones);
                     vm.controles = vm.secciones.nodes;
                 }
             } else {
                 vm.formulario.text = "Titulo Form";
             }
         });
+
+        vm.setIdSeccion = function (id) {
+            vm.idSeccion = vm.idSeccion++;
+        }
     }
 
 

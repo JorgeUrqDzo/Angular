@@ -1,7 +1,7 @@
 <form name="SeccionesConfigForm">
     <div class="col-md-12">
         <div class="row">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Configuracion de Seccion</div>
                 <div class="panel-body">
                     <div class="row">
@@ -23,14 +23,10 @@
                                 <label for="txtColumnasSeccion" class="control-label">Columnas:</label>
                                 <div>
                                     <input type="number" name="txtColumnasSeccion" min="1" max="12" class="input-sm form-control"
-                                           id="txtColumnasSeccion"
-                                           placeholder="Numero de Columnas" ng-model="vm.Seccion.Columnas" required>
-                                    <span class="text-danger"
-                                          ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.required">*Campo Requerido.</span>
-                                    <span class="text-danger"
-                                          ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.min">*El Valor Minimo permitido es 1.</span>
-                                    <span class="text-danger"
-                                          ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.max">*El Valor Maximo permitido es 12.</span>
+                                           id="txtColumnasSeccion" placeholder="Numero de Columnas" ng-model="vm.Seccion.Columnas" required>
+                                    <span class="text-danger" ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.required">*Campo Requerido.</span>
+                                    <span class="text-danger" ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.min">*El Valor Minimo permitido es 1.</span>
+                                    <span class="text-danger" ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.max">*El Valor Maximo permitido es 12.</span>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +71,7 @@
                             <div class="form-group">
                                 <label class="control-label">Tablas Base de Datos:</label>
                                 <div>
-                                    <select class="input-sm form-control" ng-model="vm.Seccion.Tabla">
+                                    <select class="input-sm form-control" ng-model="vm.Seccion.Tabla" ng-change="vm.selectBd(vm.Seccion.Tabla)">
                                         <option value="Sin Asignar">(Ninguna)</option>
                                         <option value="{{bd.tableName}}" ng-repeat="bd in vm.tablas">
                                             {{bd.tableName}}
@@ -103,14 +99,13 @@
                                 <label class="control-label">Icono: </label>
                                 <span id="iconoSel" class="dx-icon dx-icon-{{vm.Seccion.Icono }}"></span>
                                 <div>
-                                    <div class="btn-group" style="width: 100%;">
-                                        <button class="btn btn-sm btn-default dropdown-toggle"
+                                    <div class="btn-group divTipoSeccion" >
+                                        <button class="btn btn-sm btn-default dropdown-toggle divTipoSeccion"
                                                 data-toggle="dropdown"
-                                                aria-expanded="false" style="width: 100%;" ng-disabled="vm.Seccion.IdTipoSeccion == '1'">
+                                                aria-expanded="false" ng-disabled="vm.Seccion.IdTipoSeccion == '1'">
                                             Iconos <span class="caret"> </span>
                                         </button>
-                                        <ul class="dropdown-menu" ng-model="vm.icono"
-                                            style="width: 30px; height: 200px; overflow: auto" ng-disabled="vm.Seccion.IdTipoSeccion == '1'">
+                                        <ul class="dropdown-menu" id="idTipoSeccion" ng-model="vm.icono" ng-disabled="vm.Seccion.IdTipoSeccion == '1'">
                                             <li ng-repeat="icono in vm.iconos">
                                                 <!--<a ng-click="vm.icono = icono.Titulo">-->
                                                 <a ng-click="vm.Seccion.Icono  = icono.Titulo">

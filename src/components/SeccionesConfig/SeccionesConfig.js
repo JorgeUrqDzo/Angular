@@ -10,8 +10,8 @@
             bindings: {}
         });
 
-    seccionConfig.$inject = ['$http', 'nzConfig', '$uibModal', '$routeParams', 'toaster', 'FormConfig'];
-    function seccionConfig($http, nzConfig, $uibModal, $routeParams, toaster, FormConfig) {
+    seccionConfig.$inject = ['$http', 'nzConfig', '$uibModal', '$routeParams', 'toaster', 'FormConfig', 'Variables'];
+    function seccionConfig($http, nzConfig, $uibModal, $routeParams, toaster, FormConfig, Variables) {
         var vm = this;
         var idFormulario = $routeParams.id;
         vm.iconos = [];
@@ -75,6 +75,11 @@
 
         function GuardarSeccion() {
             FormConfig.Guardar(vm.Seccion);
+        }
+
+        vm.selectBd = function(table){
+
+            Variables.setTableSelected(table);
         }
     }
 

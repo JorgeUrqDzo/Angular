@@ -9,7 +9,8 @@
         },
 
         bindings: {
-            heading: '@'
+            heading: '@',
+            idseccion: '@'
         },
         templateUrl: 'src/shared/accordionPanel/accordionPanel.html',
         // template: '<div class="panel panel-default">' +
@@ -21,7 +22,8 @@
         controller: AccordionPanelController
     });
 
-    function AccordionPanelController() {
+    AccordionPanelController.$inject = ['Variables'];
+    function AccordionPanelController(Variables) {
         var self = this;
         // register the panel in init
         self.$onInit = function () {
@@ -36,7 +38,8 @@
             self.selected = false;
         };
         // Selects a the current selected panel
-        self.select = function () {
+        self.select = function (id) {
+            Variables.setVariable(id);
             self.parent.selectPanel(self);
         };
     }
