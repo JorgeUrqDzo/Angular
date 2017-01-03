@@ -14,11 +14,13 @@
         });
     }
 
-    BandejaformulariosCtrl.$inject = ['Formularios'];
+    BandejaformulariosCtrl.$inject = ['Formularios', 'loading'];
 
-    function BandejaformulariosCtrl(Formularios) {
+    function BandejaformulariosCtrl(Formularios, loading) {
         var vm = this;
+        var loading = pleaseWait(loading.loadingConfig);
 
+        loading.finish();
     }
 
 })();

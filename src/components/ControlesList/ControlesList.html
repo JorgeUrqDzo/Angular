@@ -1,52 +1,50 @@
-
-
 <div class="col-md-12">
     <div class="row">
-       <div class="panel panel-primary">
+        <div class="panel panel-primary">
             <div class="panel-heading">Controles de Seccion</div>
             <div class="panel-body" ng-if="controles.length">
-            <div class="box">
-                <!-- /.box-header -->
-                <div class="box-body" >
-                    <div class="row">
-                        <div class="col-sm-12 " >
-                            <table id="example1" class="table table-hover table-responsive" role="grid" >
-                                <thead>
-                                <tr role="row">
+                <div class="box">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <table id="example1" class="table table-hover table-responsive" role="grid">
+                                    <thead>
+                                        <tr role="row">
 
-                                    <th>#</th>
-                                    <th>Titulo</th>
-                                    <th>Tipo Control</th>
-                                    <th>Valor Default</th>
-                                    <th>Tamaño</th>
-                                    <th>Obligatorio</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                                            <th>#</th>
+                                            <th>Titulo</th>
+                                            <th>Tipo Control</th>
+                                            <th>Valor Default</th>
+                                            <th>Tamaño</th>
+                                            <th>Obligatorio</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                <tr role="row" class="" ng-repeat="control in controles">
-                                    <td class=" ">1</td>
-                                    <td>{{control.Nombre}}</td>
-                                    <td class="text-center">{{control.TipoControl}}</td>
-                                    <td class="text-center">{{control.ValorDefalut}}</td>
-                                    <td class="text-center">{{control.Longitud}}</td>
-                                    <td class="text-center">{{control.Requerido | SiNo}}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-warning">
+                                        <tr role="row" class="" ng-repeat="control in controles">
+                                            <td class=" ">1</td>
+                                            <td>{{control.Nombre}}</td>
+                                            <td class="text-center">{{control.TipoControl}}</td>
+                                            <td class="text-center">{{control.ValorDefalut}}</td>
+                                            <td class="text-center">{{control.Longitud}}</td>
+                                            <td class="text-center">{{control.Requerido | SiNo}}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-warning" ng-click="editarControl(control.IdSeccionControl)">
                                             <span class="fa fa-pencil"></span>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-danger">
+                                                <button type="button" class="btn btn-sm btn-danger" ng-click="eliminarControl(control.IdSeccionControl)">
                                             <span class="fa fa-times"></span>
                                         </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                         <div class="row">
                             <div class="form-inline">
                                 <div class="form-group">
@@ -59,10 +57,10 @@
                         </div>
                     </div> -->
 
+                    </div>
                 </div>
+                <!-- /.box-body -->
             </div>
-            <!-- /.box-body -->
         </div>
-</div> 
     </div>
 </div>

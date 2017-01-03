@@ -13,8 +13,8 @@
         });
     }
 
-    FormulariosdemoCtrl.$inject = ['dxControles', 'toaster', '$location'];
-    function FormulariosdemoCtrl(dxControles, toaster, $location) {
+    FormulariosdemoCtrl.$inject = ['dxControles', 'toaster', '$location','loading'];
+    function FormulariosdemoCtrl(dxControles, toaster, $location, loading) {
         //definiendo scope
         var vm = this;
 
@@ -26,6 +26,9 @@
             '3f4f45ff-8b27-4ab3-82c6-becf834ce6fd'
         ];
 
+        var loading = pleaseWait(loading.loadingConfig);
+        loading.finish();
+
         vm.getData = getData;
 
         vm.resetFrom = resetForm;
@@ -36,7 +39,6 @@
         function getData() {
             vm.dataForm = {};
             angular.element('#btnGetData').button('loading');
-
             dxControles.getDataSource(vm.uuidSelected)
                 .then(function (response) {
 

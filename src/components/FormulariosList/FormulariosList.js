@@ -13,11 +13,14 @@
         });
 
 
-    formulariosList.$inject = ['Formularios', '$uibModal', '$location'];
+    formulariosList.$inject = ['Formularios', '$uibModal', '$location','loading'];
 
-    function formulariosList(Formularios, $uibModal, $location) {
+
+    function formulariosList(Formularios, $uibModal, $location, loading) {
         var vm = this;
         vm.datos = [];
+        // $rootScope.setLoading(loading.loadingConfig);
+        var loading = pleaseWait(loading.loadingConfig);
 
         vm.getUUID = function (uuid) {
             alert("UUID: " + uuid);
@@ -40,8 +43,10 @@
 
         Formularios.getFormularios().then(function (res) {
             vm.datos = res.data.lstFormularioModel;
+            loading.finish();
         }, function (err) {
             console.error(err);
+            loading.updateLoadingHtml('<h3 class="loading-message"> Oops. Ha ocurrido un Error. :( </h3> <p>Intente más tarde</p>')
         });
 
         vm.crearForm = function(){

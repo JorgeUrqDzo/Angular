@@ -21,12 +21,14 @@
     }
 
 
-    NuevoformularioCtrl.$inject = ['$http', '$routeParams', 'nzConfig'];
-    function NuevoformularioCtrl($http, $routeParams, nzConfig) {
+    NuevoformularioCtrl.$inject = ['$http', '$routeParams', 'nzConfig', 'loading'];
+    function NuevoformularioCtrl($http, $routeParams, nzConfig, loading) {
         var vm = this;
         vm.formulario = [];
         // vm.IdForm =
         vm.idSeccion = 0;
+
+        var loading = pleaseWait(loading.loadingConfig);
 
         var url = nzConfig.GetFormData + $routeParams.id;
         $http.get(url).then(function (res) {
@@ -38,9 +40,12 @@
                     console.log(vm.secciones);
                     vm.controles = vm.secciones.nodes;
                 }
+                loading.finish();
             } else {
                 vm.formulario.text = "Titulo Form";
+                loading.finish();
             }
+
         });
 
         vm.setIdSeccion = function (id) {

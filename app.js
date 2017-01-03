@@ -14,7 +14,7 @@ angular.module('Controles').config(function ($routeProvider, $locationProvider) 
 });
 
 
-angular.module('Controles').run(function ($rootScope) {
+angular.module('Controles').run(function ($rootScope, loading) {
 
     $rootScope.safeApply = function (fn) {
         var phase = $rootScope.$$phase;
@@ -26,5 +26,4 @@ angular.module('Controles').run(function ($rootScope) {
             this.$apply(fn);
         }
     };
-
 });

@@ -1,118 +1,219 @@
 <form name="seccionControlConfig">
-<div class="col-md-12">
-    <div class="row" >
-        <!--<h3>Configuracion de Controles</h3>-->
-        <div class="panel panel-primary">
-            <div class="panel-heading">Configuracion de Controles</div>
-            <div class="panel-body">
-                <div class="row" >
+    <div class="col-md-12">
+        <div class="row">
+            <!--<h3>Configuracion de Controles</h3>-->
+            <div class="panel panel-primary">
+                <div class="panel-heading">Configuracion de Controles</div>
+                <div class="panel-body">
+                    <div class="row">
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtTituloControl" class="control-label">Titulo:</label>
-                            <div>
-                                <input type="text" class="input-sm form-control" id="txtTituloControl"
-                                       placeholder="Titulo de Control" ng-model="self.configControles.Titulo">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="txtTituloControl" class="control-label">Titulo:</label>
+                                <div>
+                                    <input type="text" class="input-sm form-control" id="txtTituloControl" placeholder="Titulo de Control" ng-model="self.configControles.Titulo">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtTipoControl" class="control-label">Tipo de Control:</label>
-                            <div>
-                                <select name="" class="form-control input-sm"
-                                ng-options ="opt.Titulo for opt in self.listControles track by opt.Llave" 
-                                ng-model="self.configControles.tipoControl"></select>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Tipo de Control:</label>
+                                <div>
+                                    <select name="" class="form-control input-sm" ng-options="opt.Titulo for opt in self.listControles track by opt.Llave" ng-model="self.configControles.tipoControl"></select>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtLongitudControl" class="control-label">Longitud:</label>
-                            <div>
-                                <input type="number" name="txtLongitud" class="input-sm form-control" id="txtLongitudControl" min="1" max="256"
-                                       placeholder="Longitud" ng-model="self.configControles.Longitud">
-                                <span class="text-danger" ng-show="seccionControlConfig.txtLongitud.$error.min">*El Valor Minimo permitido es 1.</span>
-                                <span class="text-danger" ng-show="seccionControlConfig.txtLongitud.$error.max">*El Valor Maximo permitido es 256.</span>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="txtLongitudControl" class="control-label">Longitud:</label>
+                                <div>
+                                    <input type="number" name="txtLongitud" class="input-sm form-control" id="txtLongitudControl" min="1" max="256" placeholder="Longitud"
+                                        ng-model="self.configControles.Longitud">
+                                    <span class="text-danger" ng-show="seccionControlConfig.txtLongitud.$error.min">*El Valor Minimo permitido es 1.</span>
+                                    <span class="text-danger" ng-show="seccionControlConfig.txtLongitud.$error.max">*El Valor Maximo permitido es 256.</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtValorDefaultControl" class="control-label">Valor Default:</label>
-                            <div>
-                                <input type="text" class="input-sm form-control" id="txtValorDefaultControl"
-                                       placeholder="Valor Default" ng-model="self.configControles.ValorDefault">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="txtValorDefaultControl" class="control-label">Valor Default:</label>
+                                <div>
+                                    <input type="text" class="input-sm form-control" id="txtValorDefaultControl" placeholder="Valor Default" ng-model="self.configControles.ValorDefault">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="col-md-12"></div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtPlaceholderControl" class="control-label">Placeholder:</label>
-                            <div>
-                                <input type="text" class="input-sm form-control" id="txtPlaceholderControl"
-                                       placeholder="Placeholder" ng-model="self.configControles.Placeholder">
+                        <div class="col-md-12"></div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="txtPlaceholderControl" class="control-label">Placeholder:</label>
+                                <div>
+                                    <input type="text" class="input-sm form-control" id="txtPlaceholderControl" placeholder="Placeholder" ng-model="self.configControles.Placeholder">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtTextoAyudaControl" class="control-label">Texto de Ayuda</label>
-                            <div>
-                                <input type="text" class="input-sm form-control" id="txtTextoAyudaControl"
-                                       placeholder="Subtexto de Ayuda" ng-model="self.configControles.TxtAyuda">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="txtTextoAyudaControl" class="control-label">Texto de Ayuda</label>
+                                <div>
+                                    <input type="text" class="input-sm form-control" id="txtTextoAyudaControl" placeholder="Subtexto de Ayuda" ng-model="self.configControles.TxtAyuda">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">Requerido:</label>
-                            <div>
-                                <div toggle-switch on-label="Si" off-label="No" class="switch-success"
-                                     ng-model="switchStatus"> </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Requerido:</label>
+                                <div>
+                                    <div toggle-switch on-label="Si" off-label="No" class="switch-success" ng-model="switchStatus"> </div>
 
-                            <input type="button" class="btn btn-default btn-sm" id="btnRequerido" ng-model="self.configControles.requerido" ng-click="self.requerido()" value="{{self.configControles.requerido | SiNo}}">
+                                    <input type="button" class="btn btn-default btn-sm" id="btnRequerido" ng-model="self.configControles.requerido" ng-click="self.requerido()"
+                                        value="{{self.configControles.requerido | SiNo}}">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtColumnaBD" class="control-label">Columna Tabla BD:</label>
-                            <div>
-                                
-                                <select name="" class="form-control input-sm"
-                                ng-model="self.configControles.ColumnName">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Columna Tabla BD:</label>
+                                <div>
+
+                                    <select name="" class="form-control input-sm" ng-model="self.configControles.ColumnName">
                                     <option value="">(Ninguno)</option>
                                     <option value="{{opt.columnName}}" ng-repeat="opt in self.ColumnName">{{opt.columnName}}</option>
                                 </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <div class="pull-left">
-                                <button type="submit" class="btn btn-sm btn-success">Guardar Control</button>
-                                <button type="reset" class="btn btn-sm btn-danger">Cancelar</button>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="pull-left">
+                                    <button type="submit" class="btn btn-sm btn-success">Guardar Control</button>
+                                    <button type="reset" class="btn btn-sm btn-danger">Cancelar</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</form>
-    <div>
-        {{self.configControles | json}}
+
+    <!--Configuracion de Switch-->
+    <div class="row"></div>
+    <div id="divSwitch" ng-if="self.configControles.tipoControl.Llave == 8 ">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Configuración de Switch</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Título opción Verdadero</label>
+                            <input type="text" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Título opción Falso</label>
+                            <input type="text" class="form-control input-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!--Configuracion de textArea-->
+    <div id="divTextArea" ng-if="self.configControles.tipoControl.Llave == 9">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Configuración de Text Area</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Altura del campo</label>
+                            <input type="number" class="form-control input-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+
+    <!--Configuracion de parametros extra-->
+    <div id="divOrigenDatos" ng-if="needDataConfig(self.configControles.tipoControl.Llave)">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Configuración de origen de datos</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Obtener Información de Base de datos:</label>
+                        <input type="checkbox" id="chkBDSeccionControl" ng-model="infoBD" />
+                        <!--<div class="checkbox">
+                                    <input type="checkbox" id="chkBDSeccionControl" />
+                                </div>-->
+                    </div>
+                </div>
+
+                <div id="divOrigenDatosBD" ng-if="!infoBD">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Consulta:</label>
+                                <textarea id="txtConsultaBandeja" cols="6" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div id="divOrigenDatosDropDownPadre" ng-if="self.configControles.tipoControl.Llave == 6 || self.configControles.tipoControl.Llave == 4">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Campo Padre: </label>
+                                    <select id="selectCampoPadre" class="form-control">
+                                        <option>(Ninguno)</option>
+                                    </select>
+                                    <input type="hidden" id="hdfIdSeccionControlPadre" value="0" />
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Campo Texto:</label>
+                                <input type="text" class="form-control" id="txtCampoTexto" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Campo Valor:</label>
+                                <input type="text" class="form-control" id="txtCampoValor" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="divOrigenDatosEstatico" ng-if="infoBD">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Informacion a mostrar:</label>
+                                <textarea id="txtCapturaValores" rows="6" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<div>
+    {{self.configControles | json}}
+</div>

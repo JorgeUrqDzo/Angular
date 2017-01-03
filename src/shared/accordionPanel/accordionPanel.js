@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
 
@@ -22,8 +22,8 @@
         controller: AccordionPanelController
     });
 
-    AccordionPanelController.$inject = ['Variables'];
-    function AccordionPanelController(Variables) {
+    AccordionPanelController.$inject = ['Variables', '$http', 'nzConfig'];
+    function AccordionPanelController(Variables, $http, nzConfig) {
         var self = this;
         // register the panel in init
         self.$onInit = function () {
@@ -41,7 +41,16 @@
         self.select = function (id) {
             Variables.setVariable(id);
             self.parent.selectPanel(self);
-        };
+
+            //obtener valores de la configuracion de seccion
+            if (id !== undefined) {
+                $http.post(nzConfig.GetSeccionConfig, JSON.stringify({ Id: id })).then(function (res) {
+                    console.log(res.data.ObjSeccionesModel);
+                }, function (err) {
+                    console.log("Error: " + err);
+                });
+            };
+        }
     }
 
 
