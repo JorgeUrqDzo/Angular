@@ -51,6 +51,14 @@
         vm.setIdSeccion = function (id) {
             vm.idSeccion = vm.idSeccion++;
         }
+
+        vm.editarControl = function(id){
+            console.info('id ', id);
+        }
+
+        vm.eliminarControl = function(id){
+            console.info('id ', id);
+        }
     }
 
 

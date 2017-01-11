@@ -29,7 +29,7 @@
                     }else{
                         panels[i].turnOn();
                     }
-                } 
+                }
                 else {
                     panels[i].turnOff();
                 }

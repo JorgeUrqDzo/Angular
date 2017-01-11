@@ -1,6 +1,7 @@
 // @import "bower_components/bootstrap/less/bootstrap.less";
 // @import "bower_components/bootstrap/less/theme.less";
 // @import "bower_components/bootstrap/dist/css/bootstrap.css";
+
 @import "node_modules/please-wait/build/please-wait.css";
 @import "assets/css/boostrapWatch.css";
 @import "bower_components/font-awesome/less/font-awesome.less";
@@ -32,19 +33,8 @@
     cursor: pointer;
 }
 
-/* Personal preference for BS modal.  The LESS below makes the backdrop white and
-   causes the modal to fade in rather than slide in. */
-//@modal-backdrop-bg: white;
-//.modal {
-//	&.fade {
-//		.transition(opacity .3s);
-//	}
-//	&.fade .modal-dialog {
-//		.translate(0,0);
-//	}
-//}
 
-
+//Loading Page
 
 body > .inner {
   display: none;
@@ -54,6 +44,9 @@ body.pg-loaded > .inner {
   display: block;
 }
 
+img.pg-loading-logo {
+  width: 30%;
+}
 
 .sk-fading-circle {
   margin: 100px auto;
@@ -191,3 +184,81 @@ body.pg-loaded > .inner {
   40% { opacity: 1; }
 }
 
+
+//checkbutton to switch
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  //width: 60px;
+  height: 17px;
+  //height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  //background-color: red;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  //height: 26px;
+  width: 13px;
+  //width: 26px;
+  left: 3px;
+  bottom: 2px;
+  right: 0;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input[disabled] + .slider {
+  opacity: 0.4;
+}
+
+input:checked + .slider {
+  background-color: green;
+  //background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px green;
+  //box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(32px);
+  -ms-transform: translateX(32px);
+  transform: translateX(32px);
+  //-webkit-transform: translateX(26px);
+  //-ms-transform: translateX(26px);
+  //transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 100px;
+  //border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 100%;
+  //border-radius: 50%;
+}

@@ -2,6 +2,18 @@
     Crear Formulario <span class="glyphicon glyphicon-plus"></span>
 </button>
 
+<!--<div>-->
+    <!--<label class="switch">-->
+        <!--<input type="checkbox"  ng-model="vm.valor" disabled>-->
+        <!--<div class="slider round"></div>-->
+    <!--</label>-->
+
+    <!--<input type="checkbox" class="form-control"  ng-model="vm.valor" >-->
+
+    <!--<i class="fa  fa-toggle-off" ng-if="!vm.valor" style="font-size:50px; color:red" ng-click="vm.valor = !vm.valor"></i>-->
+    <!--<i class="fa  fa-toggle-on" ng-if="vm.valor" style="font-size:50px; color:green"ng-click="vm.valor = !vm.valor"></i>-->
+<!--</div>-->
+
 <div class="box">
     <div class="box-header">
         <h3 class="box-title text-center">Bandeja de Formularios</h3>
@@ -38,8 +50,14 @@
                             <td>{{form.Descripcion}}</td>
                             <td class="text-center">
                                 <!-- <div toggle-switch on-label="Si" off-label="No" class="switch-small switch-success" ng-model="switchStatus"></div> -->
-                                <small class="badge">{{form.Activo | SiNo}}</small>
-                                <!--{{form.UUID}}-->
+
+                                <!--<small class="badge">{{form.Activo | SiNo}}</small>-->
+
+                                <label class="switch">
+                                    <input type="checkbox" ng-model="form.Activo" disabled>
+                                    <div class="slider round"></div>
+                                </label>
+
                             </td>
                             <td class="text-center">
                                 <button type="button" class="btn btn-sm btn-default" id="btnSeleccionarFormulario"

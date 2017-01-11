@@ -1,12 +1,22 @@
-<div class="col-md-4">
+<div class="col-sm-4">
     <h2>Secciones</h2>
     <accordion>
-        <accordion-panel heading="{{vm.formulario.text}}">
+        <accordion-panel heading="{{vm.formulario.text}}" padre="true">
             <accordion>
-                <accordion-panel heading="{{seccion.text}}" idseccion ="{{seccion.href}}" ng-repeat="seccion in vm.secciones">
-                    <p ng-repeat="control in seccion.nodes">
-                        <span class="glyphicon glyphicon-{{control.icon}}"></span> {{control.text}}
-                    </p>
+                <accordion-panel heading="{{seccion.text}}" padre="false" idseccion ="{{seccion.href}}" ng-repeat="seccion in vm.secciones">
+                    <div ng-if="!seccion.nodes">
+                        <p>No se han agregado controles</p>
+                    </div>
+
+                    <div class="form-inline divControles" ng-repeat="control in seccion.nodes">
+                        <span class="glyphicon glyphicon-{{control.icon}} text-warning"></span>
+                        <label ng-click="vm.editarControl(control.href)" class="editarControl">
+                            {{control.text}}
+                        </label>
+
+                        <i ng-click="vm.eliminarControl(control.href)" class="eliminar btn btn-sm fa fa-times"></i>
+                    </div>
+
                 </accordion-panel>
             </accordion>
         </accordion-panel>
@@ -18,11 +28,9 @@
 <div class="col-md-8">
     <h2>Configuracion</h2>
     <secciones-Config></secciones-Config>
-    <seccion-Controles-Config></seccion-Controles-Config>
-    <Controles-List ></Controles-List>
+    <!-- <seccion-Controles-Config></seccion-Controles-Config>
+    <Controles-List ></Controles-List> -->
 </div>
 
 
 <toaster-container></toaster-container>
-
-

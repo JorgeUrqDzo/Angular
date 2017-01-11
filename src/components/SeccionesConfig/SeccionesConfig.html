@@ -13,7 +13,7 @@
                                     <input type="text" name="txtNombreSeccion" class="input-sm form-control" id="txtNombreSeccion"
                                            placeholder="Nombre de Seccion" ng-model="vm.Seccion.Nombre" required>
                                     <span class="text-danger"
-                                          ng-show="SeccionesConfigForm.txtNombreSeccion.$error.required">*Campo Requerido.</span>
+                                          ng-show="SeccionesConfigForm.$dirty && SeccionesConfigForm.txtNombreSeccion.$error.required">*Campo Requerido.</span>
                                 </div>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                                 <div>
                                     <input type="number" name="txtColumnasSeccion" min="1" max="12" class="input-sm form-control"
                                            id="txtColumnasSeccion" placeholder="Numero de Columnas" ng-model="vm.Seccion.Columnas" required>
-                                    <span class="text-danger" ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.required">*Campo Requerido.</span>
+                                    <span class="text-danger" ng-show="SeccionesConfigForm.$dirty && SeccionesConfigForm.txtColumnasSeccion.$error.required">*Campo Requerido.</span>
                                     <span class="text-danger" ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.min">*El Valor Minimo permitido es 1.</span>
                                     <span class="text-danger" ng-show="SeccionesConfigForm.txtColumnasSeccion.$error.max">*El Valor Maximo permitido es 12.</span>
                                 </div>
@@ -35,10 +35,8 @@
                             <div class="form-group">
                                 <label for="txtTipoDeSeccion" class="control-label">Tipo de Seccion:</label>
                                 <div>
-                                    <select type="text" class="input-sm form-control" id="txtTipoDeSeccion"
-                                            placeholder="Tipo de Seccion" ng-model="vm.Seccion.IdTipoSeccion"
-                                            ng-init="vm.Seccion.IdTipoSeccion = '1'">
-                                        <option value="1" selected>Panel</option>
+                                    <select class="input-sm form-control" id="txtTipoDeSeccion" ng-model="vm.Seccion.IdTipoSeccion">
+                                        <option value="1">Panel</option>
                                         <option value="2">Tab</option>
                                     </select>
                                 </div>
@@ -86,7 +84,7 @@
                                 <label for="txtNombrePKSeccion" class="control-label">Nombre Primary Key:</label>
                                 <div>
                                     <input type="text" name="txtNombrePKSeccion" class="input-sm form-control" id="txtNombrePKSeccion"
-                                           placeholder="Nombre de Primary Key" ng-model="vm.Seccion.PrimaryKey"
+                                           placeholder="Nombre de Primary Key" ng-model="vm.Seccion.primaryKeyName"
                                            >
                                     <!--<span class="text-danger"-->
                                           <!--ng-show="SeccionesConfigForm.txtNombrePKSeccion.$error.required">*Campo Requerido.</span>-->
@@ -136,4 +134,11 @@
     </div>
 </form>
 
-{{ vm.Seccion | json}}
+<div class="jumbotron">
+    {{ vm.Seccion | json}}
+    {{ vm.LstSeccionControl | json}}
+</div>
+<div ng-if="vm.mostrarControles">
+    <seccion-Controles-Config  tabla="{{vm.Seccion.Tabla}}" controles="vm.LstSeccionControl" id="secc"></seccion-Controles-Config>
+    <!-- <Controles-List></Controles-List> -->
+</div>

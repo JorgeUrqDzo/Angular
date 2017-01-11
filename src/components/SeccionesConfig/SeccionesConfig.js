@@ -10,8 +10,8 @@
             bindings: {}
         });
 
-    seccionConfig.$inject = ['$http', 'nzConfig', '$uibModal', '$routeParams', 'toaster', 'FormConfig', 'Variables'];
-    function seccionConfig($http, nzConfig, $uibModal, $routeParams, toaster, FormConfig, Variables) {
+    seccionConfig.$inject = ['$http', 'nzConfig', '$uibModal', '$routeParams', 'toaster', 'FormConfig', 'Variables', '$scope'];
+    function seccionConfig($http, nzConfig, $uibModal, $routeParams, toaster, FormConfig, Variables, $scope) {
         var vm = this;
         var idFormulario = $routeParams.id;
         vm.iconos = [];
@@ -22,15 +22,46 @@
             IdGrupo: 0,
             IdSeccion: 0,
             IdSeccionIcono: 0,
-            IdTipoSeccion: 1,
+            IdTipoSeccion: "1",
             Nombre: "",
             Tabla: "Sin Asignar",
-            PrimaryKeyName: null,
+            primaryKeyName: null,
             IdTipoFormulario: 0
         };
         vm.Grupos = [];
-
         getGrupos();
+
+        vm.mostrarControles = false;
+
+        $scope.$watch(function () {
+            return Variables.getVariable()
+        }, function (newValue, oldValue) {
+            if (newValue !== oldValue) {
+                if (newValue !== undefined) {
+                    vm.mostrarControles = true;
+                    $http.get(nzConfig.GetSeccionConfig + "/"+newValue).then(function (data) {
+                        // console.log(data.data);
+                        vm.Seccion = data.data.ObjSeccionesModel;
+                    });
+                } else {
+                    vm.mostrarControles = false;
+                    vm.Seccion = vm.Seccion = {
+                        Columnas: "",
+                        Grupo: null,
+                        IdFormulario: idFormulario,
+                        IdGrupo: 0,
+                        IdSeccion: 0,
+                        IdSeccionIcono: 0,
+                        IdTipoSeccion: "1",
+                        Nombre: "",
+                        Tabla: "Sin Asignar",
+                        primaryKeyName: null,
+                        IdTipoFormulario: 0
+                    };
+                }
+            }
+
+        });
 
         $http.get(nzConfig.GetIconos).then(function (res) {
             vm.iconos = res.data;
@@ -74,7 +105,12 @@
         }
 
         function GuardarSeccion() {
-            FormConfig.Guardar(vm.Seccion);
+            var obj = {
+                seccion: vm.Seccion,
+                controles: vm.LstSeccionControl
+            };
+            FormConfig.Guardar(obj);
+            // FormConfig.Guardar(vm.Seccion);
         }
 
         vm.selectBd = function(table){

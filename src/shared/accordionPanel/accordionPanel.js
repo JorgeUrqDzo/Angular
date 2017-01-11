@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-
     angular.module('Controles').component('accordionPanel', {
         transclude: true,
         require: {
@@ -10,15 +9,10 @@
 
         bindings: {
             heading: '@',
-            idseccion: '@'
+            idseccion: '@',
+            padre: '@'
         },
         templateUrl: 'src/shared/accordionPanel/accordionPanel.html',
-        // template: '<div class="panel panel-default">' +
-        // '<div class="panel-heading" ng-click="$ctrl.select()">' +
-        // '<h3 class="panel-title">{{$ctrl.heading}}</h3>' +
-        // '</div>' +
-        // '<div class="panel-body" ng-transclude ng-if="$ctrl.selected"></div>' +
-        // '</div>',
         controller: AccordionPanelController
     });
 
@@ -45,12 +39,12 @@
             //obtener valores de la configuracion de seccion
             if (id !== undefined) {
                 $http.post(nzConfig.GetSeccionConfig, JSON.stringify({ Id: id })).then(function (res) {
-                    console.log(res.data.ObjSeccionesModel);
+                    console.log("accordionPanel seccionConfgiModel ",res.data.ObjSeccionesModel);
                 }, function (err) {
                     console.log("Error: " + err);
                 });
-            };
-        }
+            }
+        };
     }
 
 

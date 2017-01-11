@@ -7,7 +7,7 @@ angular.module('Controles')
         //WebControles
         GetFormularios: host + 'Formularios/GetFormularios',
         GetFormData: host + 'Arbol/Inicializar/',
-        GetSeccionConfig: host + 'Secciones/Guardar',
+        GetSeccionConfig: host + 'Secciones/GuardarSec',
         GetControlesConfig: host + 'SeccionControl/Editar/',
         GetTipoControl: host + 'SeccionControl/getCatalogoTipoControl',
         GuardarFormularioNuevo: host + 'Formularios/Guardar',

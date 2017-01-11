@@ -7,36 +7,36 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-sm-12 ">
-                                <table id="example1" class="table table-hover table-responsive" role="grid">
+                            <div class="col-sm-12 " id="divControlesTable">
+                                <table class="table table-hover table-condensed table-responsive">
                                     <thead>
-                                        <tr role="row">
+                                        <tr>
 
                                             <th>#</th>
                                             <th>Titulo</th>
                                             <th>Tipo Control</th>
                                             <th>Valor Default</th>
-                                            <th>Tamaño</th>
+                                            <!-- <th>Tamaño</th> -->
                                             <th>Obligatorio</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr role="row" class="" ng-repeat="control in controles">
-                                            <td class=" ">1</td>
+                                        <tr ng-repeat="control in controles">
+                                            <td class="">{{$index + 1}}</td>
                                             <td>{{control.Nombre}}</td>
                                             <td class="text-center">{{control.TipoControl}}</td>
                                             <td class="text-center">{{control.ValorDefalut}}</td>
-                                            <td class="text-center">{{control.Longitud}}</td>
+                                            <!-- <td class="text-center">{{control.Longitud}}</td> -->
                                             <td class="text-center">{{control.Requerido | SiNo}}</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-warning" ng-click="editarControl(control.IdSeccionControl)">
-                                            <span class="fa fa-pencil"></span>
-                                        </button>
+                                                    <span class="fa fa-pencil"></span>
+                                                </button>
                                                 <button type="button" class="btn btn-sm btn-danger" ng-click="eliminarControl(control.IdSeccionControl)">
-                                            <span class="fa fa-times"></span>
-                                        </button>
+                                                    <span class="fa fa-times"></span>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>

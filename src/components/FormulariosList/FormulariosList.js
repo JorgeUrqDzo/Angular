@@ -22,6 +22,8 @@
         // $rootScope.setLoading(loading.loadingConfig);
         var loading = pleaseWait(loading.loadingConfig);
 
+        vm.valor = true;
+
         vm.getUUID = function (uuid) {
             alert("UUID: " + uuid);
         };

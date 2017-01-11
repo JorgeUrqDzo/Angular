@@ -14,8 +14,9 @@
         };
 
         function Guardar(ObjSeccionModel) {
-            objSeccionControlViewModel.ObjSeccionesModel = ObjSeccionModel;
-
+            objSeccionControlViewModel.ObjSeccionesModel = ObjSeccionModel.seccion;
+            objSeccionControlViewModel.LstSeccionControl = ObjSeccionModel.controles;
+            console.info("ObjSeccionModel ",objSeccionControlViewModel )
             $http.post(nzConfig.GuardarSeccion, JSON.stringify(objSeccionControlViewModel)).then(function (res) {
                 console.log(res.data);
                 $route.reload();
