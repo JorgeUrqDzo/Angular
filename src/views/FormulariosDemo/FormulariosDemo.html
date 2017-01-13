@@ -5,10 +5,12 @@
     </div>
     <form class="form-inline" name="myForm" ng-submit="vm.getData()">
         <label for="UUID" class="">UUID:</label>
-        <select name="uuidSelect" class="form-control" ng-model="vm.uuidSelected" ng-options="x for x in vm.uuids"
+        <!-- <select name="uuidSelect" class="form-control" ng-model="vm.uuidSelected" ng-options="x for x in vm.uuids"
                 required>
             <option value="">Seleccione...</option>
         </select>
+        <span class="lead"> OR </span> -->
+        <input type="text" class="form-control" ng-model="vm.uuidSelected" placeholder="Formulario UUID">
         <button type="submit" id="btnGetData" class="btn btn-primary" ng-disabled="myForm.$invalid"
                 data-loading-text="Loading..."
                 autocomplete="off">

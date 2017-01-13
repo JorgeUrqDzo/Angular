@@ -45,19 +45,14 @@
                         </thead>
                         <tbody>
 
-                        <tr role="row" class="" ng-repeat="form in vm.datos | filter: vm.busqueda">
+                        <tr role="row" class="" ng-repeat="form in vm.datos.slice((vm.bigCurrentPage-1)*vm.maxSize) | filter: vm.busqueda | limitTo: vm.maxSize">
                             <td class=" ">{{form.Nombre}}</td>
                             <td>{{form.Descripcion}}</td>
                             <td class="text-center">
-                                <!-- <div toggle-switch on-label="Si" off-label="No" class="switch-small switch-success" ng-model="switchStatus"></div> -->
-
-                                <!--<small class="badge">{{form.Activo | SiNo}}</small>-->
-
                                 <label class="switch">
                                     <input type="checkbox" ng-model="form.Activo" disabled>
                                     <div class="slider round"></div>
                                 </label>
-
                             </td>
                             <td class="text-center">
                                 <button type="button" class="btn btn-sm btn-default" id="btnSeleccionarFormulario"
@@ -74,11 +69,41 @@
                                 </button>
                             </td>
                         </tr>
+
                         </tbody>
                     </table>
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- /.box-body -->
+
+<!-- Modal Mostrar UUID  -->
+<div class="modal fade" id="modalUUID">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content panel-primary">
+      <div class="modal-header panel-heading">
+          <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Formulario UUID</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row container-fluid text-center" >
+             <h3 id="formUUID">{{ vm.FormUUID }}</h3>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+        <button class="btn btn-info pull-right" clipboard supported="supported" text="vm.FormUUID" on-copied="vm.success()" on-error="vm.fail(err)">
+            Copiar <i class="fa fa-clipboard"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<center>
+    <ul uib-pagination total-items="vm.bigTotalItems" ng-model="vm.bigCurrentPage" max-size="vm.maxSize" class="" boundary-link-numbers="true" rotate="false" ng-change="vm.pageChanged()" previous-text="Atrás" next-text="Siguiente"></ul>
+</center>

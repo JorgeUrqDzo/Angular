@@ -13,7 +13,7 @@
         });
     }
 
-    FormulariosdemoCtrl.$inject = ['dxControles', 'toaster', '$location','loading'];
+    FormulariosdemoCtrl.$inject = ['dxControles', 'toaster', '$location', 'loading'];
     function FormulariosdemoCtrl(dxControles, toaster, $location, loading) {
         //definiendo scope
         var vm = this;
@@ -21,7 +21,7 @@
         vm.limpiar = false;
         vm.uuidSelected = "";
         vm.uuids = [
-            '99db8f88-c1a1-447f-ade0-3ec56c8ba13b',
+            '05d5320c-5d36-44c9-9f71-482dd4dd1846',
             'a65ba1f0-21cf-40c0-9040-c5deabaa844f',
             '3f4f45ff-8b27-4ab3-82c6-becf834ce6fd'
         ];
@@ -49,7 +49,9 @@
                     angular.element('#btnGetData').button('reset');
 
                 }, function (error) {
+                    angular.element('#btnGetData').button('reset');
                     toaster.pop('error', "Error", "Ha ocurrido un error");
+
                     // console.error(error);
                 });
         }
@@ -62,8 +64,14 @@
         function save() {
             // angular.element('#pleaseWaitDialog').modal();
             // console.log(angular.element('#nzForm').dxForm('instance'));
+            // var formulario = angular.element("nzForm").dxForm('instance').option('formData');
+
             if (angular.element('#nzForm').dxForm('instance').validate().isValid) {
+
+                // console.info("Formulario ", formulario);
+
                 toaster.pop("success", "Datos Enviados");
+
                 vm.resetFrom();
             }
         }

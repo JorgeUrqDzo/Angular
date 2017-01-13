@@ -126,13 +126,13 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Título opción Verdadero</label>
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="self.configControles.TextoSeleccionado">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Título opción Falso</label>
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="self.configControles.TextoNoSeleccionado">
                             </div>
                         </div>
                     </div>
@@ -222,9 +222,9 @@
 
                     <br>
                     <br>
-                    <div class=" col-md-12 jumbotron">
+                    <!-- <div class=" col-md-12 jumbotron">
                         {{self.configControles | json}}
-                    </div>
+                    </div> -->
                     <hr>
                     <!-- Tabla de controles de seccion -->
                     <div class="row">
@@ -262,9 +262,9 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="jumbotron">
+                            <!-- <div class="jumbotron">
                                 {{controles | json}}
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
