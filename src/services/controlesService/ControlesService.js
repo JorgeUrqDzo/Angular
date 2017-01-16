@@ -12,8 +12,9 @@
             return $http.get(url);
         };
 
-        this.save = function () {
-
+        this.save = function (action,url, arr) {
+            $http.post(action + url, JSON.stringify(arr)).then(function (data) {
+            });
         };
 
         this.get = function () {
