@@ -22,13 +22,14 @@
         self.configControles.Requerido = false;
         self.configControles.IdSeccionControlPadre = "0";
 
+
         $http.get(nzConfig.GetTipoControl).then(function (data) {
             self.listControles = data.data;
 
             // self.configControles.TipoControl = { Llave: 1, Titulo: 'Texto' };
             self.configControles.IdTipoControl = "1";
 
-            console.log('tipo control ',self.listControles);
+            // console.log('tipo control ',self.listControles);
         });
 
         var arr = [4, 6, 7, 5];
@@ -70,7 +71,7 @@
                 requerido: false,
                 // TipoControl: { Llave: 1, Titulo: 'Texto' }
                 IdTipoControl: "1",
-                IdSeccionControlPadre : "0"
+                IdSeccionControlPadre : "0",
             };
 
             $scope.controles[self.IndexEdicion] = self.controlEnEdicion;
@@ -88,13 +89,11 @@
             if(self.IndexEdicion > -1){
                // $scope.controles.splice(self.IndexEdicion,1);
                $scope.controles[self.IndexEdicion] = datos;
-               console.log("edicion");
                resetEdicion();
             }else{
             // if($scope.controles.indexOf(datos) < 0){
                 $scope.controles.push(datos);
                 self.controles = $scope.controles;
-                console.log("nuevo");
             }
             self.reset();
         };
@@ -115,7 +114,7 @@
                         $scope.controles = data.data;
                         self.controles = data.data;
                         self.controlesPadres = $scope.controles.filter(controlesTipoList);
-                        console.log("ControlesList ", self.controles);
+                        // console.log("ControlesList ", self.controles);
                     });
                 } else {
                     $scope.controles = [];

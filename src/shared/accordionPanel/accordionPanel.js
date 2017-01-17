@@ -39,7 +39,7 @@
             //obtener valores de la configuracion de seccion
             if (id !== undefined) {
                 $http.post(nzConfig.GetSeccionConfig, JSON.stringify({ Id: id })).then(function (res) {
-                    console.log("accordionPanel seccionConfgiModel ",res.data.ObjSeccionesModel);
+                    // console.log("accordionPanel seccionConfgiModel ",res.data.ObjSeccionesModel);
                 }, function (err) {
                     console.log("Error: " + err);
                 });

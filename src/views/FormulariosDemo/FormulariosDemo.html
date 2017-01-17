@@ -3,26 +3,42 @@
     <div class="container">
         <h1> {{vm.variable}} </h1>
     </div>
-    <form class="form-inline" name="myForm" ng-submit="vm.getData()">
-        <label for="UUID" class="">UUID:</label>
-        <select name="uuidSelect" class="form-control" ng-model="vm.uuidSelected" ng-options="x for x in vm.uuids"
-                required>
-            <option value="">Seleccione...</option>
-        </select>
-        <button type="submit" id="btnGetData" class="btn btn-primary" ng-disabled="myForm.$invalid"
-                data-loading-text="Loading..."
-                autocomplete="off">
-            Get Data <span class="fa fa-tasks" aria-hidden="true"></span>
-        </button>
-        <hr>
+    <form class="" name="myForm" ng-submit="vm.getData()">
+        <div class=" col-md-12">
+            <div class="col-md-5">
+                <label for="UUID" class="">UUID:</label>
+                <!-- <select name="uuidSelect" class="form-control" ng-model="vm.uuidSelected" ng-options="x for x in vm.uuids"
+                        required>
+                    <option value="">Seleccione...</option>
+                </select>
+                <span class="lead"> OR </span> -->
+                <input type="text" class="form-control " ng-model="vm.uuidSelected" placeholder="Formulario UUID">
+                <hr>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="">Key:</label>
+                <input type="number" class="form-control " name="" value="" min="1" ng-model="vm.key" placeholder="Id de registro en BD">
+                <hr>
+            </div>
+            <div class="form-group col-md-3">
+                <label class="">Accion:</label>
+                <button type="submit" id="btnGetData" class="btn btn-primary form-control" ng-disabled="myForm.$invalid"
+                        data-loading-text="Loading..."
+                        autocomplete="off">
+                    Get Data <span class="fa fa-tasks" aria-hidden="true"></span>
+                </button>
+                <hr>
+            </div>
+        </div>
+
+
     </form>
 
 
     <div id="myDxForm">
         <!--<div id="formDx" dx-form="{myData: '' , onInitialized : vm.initDxForm }"></div>-->
-        <div id="nzForm" dx-form="vm.dataForm"></div>
+        <div id="nzForm" dx-form="vm.dataForm" ng-model="vm.nzForm"></div>
     </div>
-
     <hr>
     <div class="col-lg-12">
         <div class="form-inline">

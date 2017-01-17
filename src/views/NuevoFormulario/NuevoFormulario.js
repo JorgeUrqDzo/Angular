@@ -37,7 +37,7 @@
                 vm.formulario = obj;
                 if (obj.nodes) {
                     vm.secciones = obj.nodes;
-                    console.log(vm.secciones);
+                    // console.log(vm.secciones);
                     vm.controles = vm.secciones.nodes;
                 }
                 loading.finish();

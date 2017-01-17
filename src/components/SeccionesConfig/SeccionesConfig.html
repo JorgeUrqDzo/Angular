@@ -134,10 +134,11 @@
     </div>
 </form>
 
-<div class="jumbotron">
+<!-- <div class="jumbotron">
     {{ vm.Seccion | json}}
+    <br>
     {{ vm.LstSeccionControl | json}}
-</div>
+</div> -->
 <div ng-if="vm.mostrarControles">
     <seccion-Controles-Config  tabla="{{vm.Seccion.Tabla}}" controles="vm.LstSeccionControl" id="secc"></seccion-Controles-Config>
     <!-- <Controles-List></Controles-List> -->

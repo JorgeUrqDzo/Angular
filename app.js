@@ -1,4 +1,4 @@
-angular.module('Controles', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'ngSanitize', 'dx', 'toaster']);
+angular.module('Controles', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'ngSanitize', 'dx', 'toaster', 'angular-clipboard', 'ngTable', 'ui.bootstrap']);
 
 angular.module('Controles').config(function ($routeProvider, $locationProvider) {
 

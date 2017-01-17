@@ -11,7 +11,9 @@
                             <div class="form-group">
                                 <label for="txtTituloControl" class="control-label">Titulo:</label>
                                 <div>
-                                    <input type="text" class="input-sm form-control" id="txtTituloControl" placeholder="Titulo de Control" ng-model="self.configControles.Nombre">
+                                    <input type="text" class="input-sm form-control" id="txtTituloControl" name="txtTituloControl" placeholder="Titulo de Control" ng-model="self.configControles.Nombre" required>
+                                    <span class="text-danger"
+                                          ng-show="seccionControlConfig.$dirty && seccionControlConfig.txtTituloControl.$error.required">*Campo Requerido.</span>
                                 </div>
                             </div>
                         </div>
@@ -78,10 +80,12 @@
                                 <label class="control-label">Columna Tabla BD:</label>
                                 <div>
 
-                                    <select name="" class="form-control input-sm" ng-model="self.configControles.NombreColumna">
+                                    <select name="selCampoTabla" class="form-control input-sm" ng-model="self.configControles.NombreColumna" required>
                                     <option value="">(Ninguno)</option>
                                     <option value="{{opt.columnName}}" ng-repeat="opt in self.ColumnName">{{opt.columnName}}</option>
                                 </select>
+                                <span class="text-danger"
+                                      ng-show="seccionControlConfig.$dirty && seccionControlConfig.selCampoTabla.$error.required">*Campo Requerido.</span>
                                 </div>
                             </div>
                         </div>
@@ -109,6 +113,7 @@
 
 
                         </div>
+                        <div class="col-md-12"></div>
 
                         <!-- <div class="col-md-12">
                             <div class="form-group">
@@ -126,13 +131,13 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Título opción Verdadero</label>
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="self.configControles.TextoSeleccionado">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Título opción Falso</label>
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="self.configControles.TextoNoSeleccionado">
                             </div>
                         </div>
                     </div>
@@ -168,7 +173,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Consulta:</label>
-                                        <textarea id="txtConsultaBandeja" cols="6" class="form-control input-sm" ng-model="self.configControles.objEncDataSource.Consulta"></textarea>
+                                        <textarea name="txtConsultaBandeja" id="txtConsultaBandeja" cols="6" class="form-control input-sm" ng-model="self.configControles.objEncDataSource.Consulta" required></textarea >
+                                        <span class="text-danger"
+                                              ng-show="seccionControlConfig.txtConsultaBandeja.$error.required">*Campo Requerido.</span>
                                     </div>
                                 </div>
                                 <div id="divOrigenDatosDropDownPadre" ng-if="self.configControles.IdTipoControl == 6 || self.configControles.IdTipoControl == 4">
@@ -186,14 +193,18 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Campo Texto:</label>
-                                        <input type="text" class="form-control input-sm" id="txtCampoTexto" ng-model="self.configControles.objEncDataSource.TextField" />
+                                        <input type="text" class="form-control input-sm" id="txtCampoTexto" name="txtCampoTexto" ng-model="self.configControles.objEncDataSource.TextField" required/>
                                     </div>
+                                    <span class="text-danger"
+                                          ng-show="seccionControlConfig.txtCampoTexto.$error.required">*Campo Requerido.</span>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Campo Valor:</label>
-                                        <input type="text" class="form-control input-sm" id="txtCampoValor" ng-model="self.configControles.objEncDataSource.ValueField"/>
+                                        <input type="text" class="form-control input-sm" id="txtCampoValor" name="txtCampoValor" ng-model="self.configControles.objEncDataSource.ValueField" required/>
                                     </div>
+                                    <span class="text-danger"
+                                          ng-show="seccionControlConfig.txtCampoValor.$error.required">*Campo Requerido.</span>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +214,9 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Informacion a mostrar:</label>
-                                        <textarea id="txtCapturaValores" rows="6" class="form-control input-sm" ng-model="self.configControles.objEncDataSource.Valores"></textarea>
+                                        <textarea id="txtCapturaValores" name="txtCapturaValores" rows="6" class="form-control input-sm" ng-model="self.configControles.objEncDataSource.Valores" required></textarea>
+                                        <span class="text-danger"
+                                              ng-show="seccionControlConfig.txtCapturaValores.$error.required">*Campo Requerido.</span>
                                     </div>
                                 </div>
                             </div>
@@ -214,7 +227,7 @@
                     <div class="col-md-12 row">
                         <div class="form-group">
                             <div class="pull-left">
-                                <button type="submit" class="btn btn-sm btn-success" ng-click="self.agregarControl()">Guardar</button>
+                                <button type="submit" class="btn btn-sm btn-success" ng-click="self.agregarControl()" ng-disabled="!seccionControlConfig.$valid">Guardar</button>
                                 <button type="button" class="btn btn-sm btn-danger" ng-click="self.reset()">Cancelar</button>
                             </div>
                         </div>
@@ -222,9 +235,9 @@
 
                     <br>
                     <br>
-                    <div class=" col-md-12 jumbotron">
+                    <!-- <div class=" col-md-12 jumbotron">
                         {{self.configControles | json}}
-                    </div>
+                    </div> -->
                     <hr>
                     <!-- Tabla de controles de seccion -->
                     <div class="row">
@@ -262,9 +275,9 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="jumbotron">
+                            <!-- <div class="jumbotron">
                                 {{controles | json}}
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 

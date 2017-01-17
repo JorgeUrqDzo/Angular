@@ -37,6 +37,10 @@
             , SubirDocumentos: 10
         };
 
+        dxControles.saveData = function(datos){
+            ControlesService.save(API_URL, ACTION_SAVE, datos);
+        };
+
         dxControles.getDataSource = function (UUID, Key) {
             //consumir service que obtiene datos de la API
             var varObjDX = {};
