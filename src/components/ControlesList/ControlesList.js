@@ -38,7 +38,6 @@
 
         //Eliminar Control agregado
         $scope.eliminarControl = function (id) {
-
             console.log(id);
         };
     }

@@ -1,8 +1,5 @@
 (function () {
-
     'use strict';
-
-
     //Los Nombres de componentes deben ser en formato camelCase
     angular.module('Controles')
         .component('formulariosList', {
@@ -12,9 +9,7 @@
             bindings: {}
         });
 
-
     formulariosList.$inject = ['Formularios', '$uibModal', '$location', 'loading', 'toaster', 'NgTableParams'];
-
 
     function formulariosList(Formularios, $uibModal, $location, loading, toaster, NgTableParams) {
         var vm = this;
@@ -41,7 +36,6 @@
         vm.valor = true;
 
         vm.success = function () {
-            // console.log('Copied!');
             toaster.pop("info", "UUID Copiado");
         };
 
@@ -51,14 +45,11 @@
         };
 
         vm.getUUID = function (uuid) {
-            // alert("UUID: " + uuid);
-            // console.log(uuid);
             vm.FormUUID = uuid;
             angular.element('#modalUUID').modal();
         };
 
         vm.editar = function (id) {
-            // alert("Editar id " + id);
             $location.url('/editarFormulario/' + id);
         };
 
@@ -90,12 +81,5 @@
                 //do something with the result
             });
         };
-
-
-
-
-
     }
-
-
 })();

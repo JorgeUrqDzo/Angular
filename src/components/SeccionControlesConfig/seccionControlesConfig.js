@@ -22,14 +22,10 @@
         self.configControles.Requerido = false;
         self.configControles.IdSeccionControlPadre = "0";
 
-
         $http.get(nzConfig.GetTipoControl).then(function (data) {
             self.listControles = data.data;
-
             // self.configControles.TipoControl = { Llave: 1, Titulo: 'Texto' };
             self.configControles.IdTipoControl = "1";
-
-            // console.log('tipo control ',self.listControles);
         });
 
         var arr = [4, 6, 7, 5];
@@ -37,9 +33,7 @@
         self.IndexEdicion = -1;
 
         $scope.needDataConfig = function (id) {
-
             var index = arr.indexOf(parseInt(id));
-
             return index > -1;
         };
 
@@ -53,7 +47,6 @@
                     var objGetTableColumnsNamesModel = { columnName: self.tabla };
                     $http.post(nzConfig.GetTableColumnName, JSON.stringify(objGetTableColumnsNamesModel)).then(function (data) {
                         self.ColumnName = data.data;
-                        // console.info('ColumnName ', self.ColumnName);
                     });
                 } else {
                     self.ColumnName = [];
@@ -66,14 +59,12 @@
         };
 
         self.reset = function(){
-
             self.configControles = {
                 requerido: false,
                 // TipoControl: { Llave: 1, Titulo: 'Texto' }
                 IdTipoControl: "1",
                 IdSeccionControlPadre : "0",
             };
-
             $scope.controles[self.IndexEdicion] = self.controlEnEdicion;
             resetEdicion();
         };
@@ -85,7 +76,6 @@
 
         self.agregarControl = function(){
             var datos = self.configControles;
-
             if(self.IndexEdicion > -1){
                // $scope.controles.splice(self.IndexEdicion,1);
                $scope.controles[self.IndexEdicion] = datos;
@@ -122,13 +112,10 @@
             // }
         });
 
-
-
         //Editar Control agregado
         $scope.editarControl = function (index) {
             self.IndexEdicion = index;
             angular.copy($scope.controles[index], self.controlEnEdicion);
-
             angular.copy(self.controlEnEdicion, self.configControles );
             // self.configControles = $scope.controles[index];
             self.configControles.IdTipoControl = self.configControles.IdTipoControl + "";
