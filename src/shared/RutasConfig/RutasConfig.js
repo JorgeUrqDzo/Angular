@@ -5,7 +5,8 @@ var hostAPI = 'http://localhost:64632/';
 angular.module('Controles')
     .constant('nzConfig', {
         //WebControles
-        GetFormularios: host + 'Formularios/GetFormularios',
+        GetFormularios: host + 'Formularios/GetFormularios/',
+
         GetFormData: host + 'Arbol/Inicializar/',
         GetSeccionConfig: host + 'Secciones/GuardarSec',
         GetControlesConfig: host + 'SeccionControl/Editar/',
